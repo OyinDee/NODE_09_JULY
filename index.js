@@ -2,9 +2,10 @@ const express = require('express');
 const PORT = 9000;
 const app = express()
 const ejs = require('ejs');
+require('dotenv').config();
+
 const mongoose = require('mongoose');
-const uri = "mongodb+srv://ajalaonda:ufaGpOCxB9@cluster0.5zaasgu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-app.use(express.json());
+const uri = process.env.MONGODB_URI 
 // app.use(express.urlencoded({ extended: true }));
 
 const userSchema = new mongoose.Schema({
