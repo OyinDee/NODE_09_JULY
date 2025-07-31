@@ -55,7 +55,7 @@ const loginController = (request, response)=>{
             // console.log('User found:', user);
             if(user.password==userData.password){
                 jwt.sign({ user: user}, process.env.JWT_SECRET, { expiresIn: '10m' }, (err, token) => {
-                    console.log(token)
+                    // console.log(token)
                     response.status(200).send({token: token});
                 })
             }
