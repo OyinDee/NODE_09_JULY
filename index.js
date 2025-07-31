@@ -8,11 +8,12 @@ const nodemailer = require('nodemailer');
 const jwt  = require('jsonwebtoken')
 const { loginController, tokenDecoder, signupController } = require('./controllers/auth.controller.js');
 const { default: connect } = require('./controllers/connection.controller.js');
-
+const cors = require('cors')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 const { viewEjs, viewLogin, viewRegister, viewIndex } = require('./controllers/views.controllers.js');
 
+app.use(cors())
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
