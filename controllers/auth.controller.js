@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { User } from '../schemas/userSchema.js';
+import User from '../schemas/userSchema.js';
 import jwt from 'jsonwebtoken';
 const signupController = (request, response) => {
     console.log(request.body);
