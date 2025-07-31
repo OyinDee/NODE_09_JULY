@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { User } from '../schemas/userSchema.js';
 const signupController = (request, response) => {
     console.log(request.body);
     const email = request.body.email;
