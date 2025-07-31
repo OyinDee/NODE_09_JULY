@@ -14,7 +14,10 @@ app.use(express.json())
 const { viewEjs, viewLogin, viewRegister, viewIndex } = require('./controllers/views.controllers.js');
 
 app.use(cors())
-
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:3000/'],
+  credentials: true
+}));
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
 }).addListener('error', (err) => {
