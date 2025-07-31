@@ -54,10 +54,10 @@ const loginController = (request, response)=>{
         else{
             // console.log('User found:', user);
             if(user.password==userData.password){
-                jwt.sign({ user: user}, process.env.JWT_SECRET, { expiresIn: '10m' }, (err, token) => {
+                const userToken = jwt.sign({ user: user}, process.env.JWT_SECRET, { expiresIn: '10m' }, (err, token) => {
                     console.log(token)
                 })
-                response.status(200).send(`Welcome ${user.username}`);
+                response.status(200).send({token: userToken});
             }
             else{
                 // console.log({ passwordInput: userData.password, Foundpassword: user.password });
